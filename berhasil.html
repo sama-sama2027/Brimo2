@@ -247,7 +247,8 @@
       <span class="mo">mo</span>
     </div>
 
-    <a href="#" class="contact-btn">
+    <!-- Ganti 6281234567890 dengan nomor WhatsApp tujuan (format 62 tanpa tanda + atau 0 di depan) -->
+    <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20konfirmasi%20pendaftaran" target="_blank" rel="noopener noreferrer" class="contact-btn">
       <svg viewBox="0 0 24 24">
         <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
         <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
@@ -325,8 +326,6 @@
       };
     }
 
-    // Cadangan: jika browser HP menahan autoplay audio sebelum disentuh,
-    // suara langsung jalan pada sentuhan/klik pertama di mana saja pada layar.
     ["click", "touchstart"].forEach((evt) => {
       document.addEventListener(evt, () => {
         if (!hasSpoken) speakText();
