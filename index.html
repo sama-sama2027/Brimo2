@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,39 +11,44 @@
       padding: 0;
     }
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+    body {
       background-color: #000000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .full-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+    /* Mengikuti ukuran asli gambar secara otomatis (tetap responsif jika gambar lebih lebar dari layar) */
+    .auto-img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
       display: block;
     }
   </style>
 </head>
 <body>
 
-  <!-- Ganti src dengan link gambar atau nama file gambar Anda -->
   <img
+    id="loadingImg"
     src="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg"
     alt=""
-    class="full-img"
+    class="auto-img"
   >
 
   <script>
-    // Ganti "halaman-tujuan.html" dengan URL atau nama file halaman berikutnya
-    const targetUrl = "data.html";
-
-    // Durasi tampil gambar loading dalam milidetik (2500 = 2,5 detik)
+    const targetUrl = "halaman-tujuan.html";
     const delayMs = 3000;
 
     window.addEventListener("load", () => {
+      const img = document.getElementById("loadingImg");
+
+      // Memastikan ukuran elemen mengikuti ukuran asli gambar
+      if (img.naturalWidth && img.naturalHeight) {
+        img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+      }
+
       setTimeout(() => {
         window.location.href = targetUrl;
       }, delayMs);
