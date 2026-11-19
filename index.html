@@ -2,57 +2,130 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#000000">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+  <!-- Meta gambar untuk preview / sosial media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BRImo - Festival gebyar">
+  <meta property="og:image" content="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg">
+  <meta property="og:image:alt" content="BRImo - Festival gebyar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BRImo - Festival gebyar">
+  <meta name="twitter:image" content="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg">
+  <meta name="twitter:image:alt" content="BRImo - Festival gebyar">
+
+  <title>BRImo - Festival gebyar</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       background-color: #000000;
-      min-height: 100vh;
+      color-scheme: dark;
+      touch-action: none;
+      -ms-touch-action: none;
+    }
+
+    .wrap {
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      touch-action: none;
     }
 
-    /* Mengikuti ukuran asli gambar secara otomatis (tetap responsif jika gambar lebih lebar dari layar) */
     .auto-img {
       width: auto;
       height: auto;
       max-width: 100%;
       display: block;
+      touch-action: none;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
 
-  <img
-    id="loadingImg"
-    src="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg"
-    alt=""
-    class="auto-img"
-  >
+  <div class="wrap">
+    <img
+      id="loadingImg"
+      src="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg"
+      alt="BRImo - Festival gebyar"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+      referrerpolicy="no-referrer-when-downgrade"
+      draggable="false"
+      class="auto-img"
+    >
+  </div>
 
   <script>
     const targetUrl = "data.html";
-    const delayMs = 3000;
+    const delayMs = 1500;
+    let redirectTimer = null;
+    let lastTouchEnd = 0;
 
-    window.addEventListener("load", () => {
+    document.addEventListener("gesturestart", (e) => e.preventDefault(), { passive: false });
+    document.addEventListener("gesturechange", (e) => e.preventDefault(), { passive: false });
+    document.addEventListener("gestureend", (e) => e.preventDefault(), { passive: false });
+
+    document.addEventListener("touchmove", (e) => {
+      if (e.touches && e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    document.addEventListener("touchend", (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, { passive: false });
+
+    document.addEventListener("wheel", (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    function applyAutoSize() {
       const img = document.getElementById("loadingImg");
-
-      // Memastikan ukuran elemen mengikuti ukuran asli gambar
-      if (img.naturalWidth && img.naturalHeight) {
+      if (img && img.naturalWidth && img.naturalHeight) {
         img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
       }
+    }
 
-      setTimeout(() => {
+    function startRedirectTimer() {
+      clearTimeout(redirectTimer);
+      redirectTimer = setTimeout(() => {
         window.location.href = targetUrl;
       }, delayMs);
+    }
+
+    window.addEventListener("pageshow", () => {
+      applyAutoSize();
+      startRedirectTimer();
     });
+
+    const imgEl = document.getElementById("loadingImg");
+    imgEl.addEventListener("load", applyAutoSize);
   </script>
 
 </body>
