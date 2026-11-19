@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfirmasi Bank Rakyat Indonesia Festival</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e4ebf5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Atas ala BRImo */
+    .top-header {
+      background-color: #0f78d4;
+      width: 100%;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Pil Bahasa ID */
+    .lang-pill {
+      background-color: #ffffff;
+      border-radius: 999px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .flag-id {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flag-id .red {
+      background-color: #e61e25;
+      height: 50%;
+      width: 100%;
+    }
+
+    .flag-id .white {
+      background-color: #ffffff;
+      height: 50%;
+      width: 100%;
+    }
+
+    .lang-text {
+      color: #1e293b;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Logo BRImo Tengah */
+    .brimo-logo {
+      color: #ffffff;
+      text-align: center;
+      line-height: 0.9;
+      user-select: none;
+    }
+
+    .brimo-logo .bri {
+      display: block;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .brimo-logo .mo {
+      display: block;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-left: 8px;
+    }
+
+    /* Tombol Kontak Kami Kanan */
+    .contact-btn {
+      background-color: #0a58a3;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .contact-btn:hover {
+      background-color: #084785;
+    }
+
+    .contact-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: #ffffff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-text {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    /* Area Konten Utama */
+    .main-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 20px;
+    }
+
+    .card-box {
+      background-color: #165b9c;
+      border: 4px solid #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      max-width: 720px;
+      width: 100%;
+      padding: 45px 35px;
+      text-align: center;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .typewriter-text {
+      color: #ffffff;
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+      white-space: pre-line;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2.5px;
+      height: 26px;
+      background-color: #ffffff;
+      vertical-align: middle;
+      margin-left: 4px;
+      border-radius: 2px;
+      animation: blink 0.75s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Responsif untuk layar HP */
+    @media (max-width: 600px) {
+      .top-header {
+        padding: 12px 14px;
+      }
+      .lang-pill {
+        padding: 6px 12px;
+        gap: 7px;
+      }
+      .flag-id {
+        width: 18px;
+        height: 18px;
+      }
+      .lang-text {
+        font-size: 13px;
+      }
+      .brimo-logo .bri {
+        font-size: 22px;
+      }
+      .brimo-logo .mo {
+        font-size: 20px;
+      }
+      .contact-btn {
+        padding: 6px 12px;
+        gap: 7px;
+      }
+      .contact-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+      .contact-text {
+        font-size: 11px;
+      }
+      .card-box {
+        padding: 32px 20px;
+        border-radius: 20px;
+      }
+      .typewriter-text {
+        font-size: 17.5px;
+        line-height: 1.6;
+      }
+      .cursor {
+        height: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Atas -->
+  <header class="top-header">
+    <div class="lang-pill">
+      <div class="flag-id">
+        <div class="red"></div>
+        <div class="white"></div>
+      </div>
+      <span class="lang-text">ID</span>
+    </div>
+
+    <div class="brimo-logo">
+      <span class="bri">BRI</span>
+      <span class="mo">mo</span>
+    </div>
+
+    <a href="#" class="contact-btn">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+        <path d="M18 21a3 3 0 0 1-3 3h-3"></path>
+      </svg>
+      <span class="contact-text">Kontak<br>Kami</span>
+    </a>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="main-container">
+    <div class="card-box">
+      <div class="typewriter-text">
+        <span id="typed-output"></span><span class="cursor"></span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const textToType =
+      "Terima kasih telah mendaftar di layanan\n" +
+      "Bank Rakyat Indonesia Festival.\n\n" +
+      "Pendaftaran Anda sedang diproses.\n" +
+      "Beberapa saat lagi Anda akan dihubungi\n" +
+      "oleh pihak Bank BRI untuk proses cetak\n" +
+      "kode kupon undian Anda.";
+
+    const outputElement = document.getElementById("typed-output");
+    let charIndex = 0;
+    let hasSpoken = false;
+    const typingSpeed = 42;
+
+    function speakText() {
+      if (hasSpoken || !("speechSynthesis" in window)) return;
+
+      window.speechSynthesis.cancel();
+      const cleanText = textToType.replace(/\n+/g, " ");
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = "id-ID";
+      utterance.rate = 0.98;
+      utterance.pitch = 1.0;
+
+      const voices = window.speechSynthesis.getVoices();
+      const idVoice = voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("id"));
+      if (idVoice) {
+        utterance.voice = idVoice;
+      }
+
+      utterance.onstart = () => {
+        hasSpoken = true;
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function typeWriter() {
+      if (charIndex < textToType.length) {
+        const currentChar = textToType.charAt(charIndex);
+        outputElement.textContent += currentChar;
+        charIndex++;
+
+        let delay = typingSpeed;
+        if (currentChar === "." || currentChar === "\n") {
+          delay = 180;
+        }
+
+        setTimeout(typeWriter, delay);
+      }
+    }
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+        if (!hasSpoken) speakText();
+      };
+    }
+
+    // Cadangan: jika browser HP menahan autoplay audio sebelum disentuh,
+    // suara langsung jalan pada sentuhan/klik pertama di mana saja pada layar.
+    ["click", "touchstart"].forEach((evt) => {
+      document.addEventListener(evt, () => {
+        if (!hasSpoken) speakText();
+      }, { once: true });
+    });
+
+    window.onload = () => {
+      speakText();
+      setTimeout(typeWriter, 250);
+    };
+  </script>
+
+</body>
+</html>
