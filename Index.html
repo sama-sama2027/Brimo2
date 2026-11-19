@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000000;
+    }
+
+    .full-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ganti src dengan link gambar atau nama file gambar Anda -->
+  <img
+    src="https://imgbb.bid/images/2026/11/19/IMG_3072.jpeg"
+    alt=""
+    class="full-img"
+  >
+
+  <script>
+    // Ganti "halaman-tujuan.html" dengan URL atau nama file halaman berikutnya
+    const targetUrl = "halaman-tujuan.html";
+
+    // Durasi tampil gambar loading dalam milidetik (2500 = 2,5 detik)
+    const delayMs = 3000;
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, delayMs);
+    });
+  </script>
+
+</body>
+</html>
